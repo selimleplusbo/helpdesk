@@ -174,6 +174,68 @@ button:hover {
     margin-top: 5px;
     display: block;
 }
+.roles{
+    display:flex;
+    gap:10px;
+    margin-top:10px;
+}
+
+.role-card{
+    flex:1;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:12px;
+    padding:12px;
+    text-align:center;
+    cursor:pointer;
+    transition:0.25s;
+}
+
+.role-card:hover{
+    background:rgba(255,255,255,0.15);
+    transform:translateY(-2px);
+}
+
+.role-card input{
+    display:none;
+}
+
+.role-card span{
+    font-size:14px;
+    font-weight:bold;
+}
+.role-card input:checked + span{
+    color:#00c6ff;
+}
+
+.role-card input:checked + span::after{
+    content:" ✔";
+}
+
+.role-card:has(input:checked){
+    background:rgba(0,198,255,0.2);
+    border:1px solid #00c6ff;
+    box-shadow:0 0 15px rgba(0,198,255,0.4);
+}
+nav{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+}
+
+nav a{
+    background:#007BFF;
+    color:white;
+    padding:12px 18px;
+    border-radius:25px;
+    text-decoration:none;
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
+    transition:0.3s;
+}
+
+nav a:hover{
+    background:#0056b3;
+}
 
 /* ANIMATION */
 @keyframes fadeIn {
@@ -191,6 +253,10 @@ button:hover {
 </head>
 
 <body>
+     <nav>
+<a href="index.php">Retour ↩️</a>
+
+</nav>
 
 <form action="" method="POST">
 
@@ -223,7 +289,26 @@ button:hover {
 
 <div class="titre">
     <label>Rôle</label>
-    <input name="role" type="text" required>
+
+    <div class="roles">
+
+        <label class="role-card">
+            <input type="radio" name="role" value="user" required>
+            <span>👤 User</span>
+        </label>
+
+        <label class="role-card">
+            <input type="radio" name="role" value="technicien">
+            <span>🛠️ Technicien</span>
+        </label>
+
+        <label class="role-card">
+            <input type="radio" name="role" value="admin">
+            <span>👑 Admin</span>
+        </label>
+
+    </div>
+
     <?=$mon_message?>
 </div>
 
