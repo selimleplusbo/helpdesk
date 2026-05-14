@@ -150,7 +150,25 @@ button[name="modif"] {
     background: #3aa0ff;
     color: white;
 }
+nav{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+}
 
+nav a{
+    background:#007BFF;
+    color:white;
+    padding:12px 18px;
+    border-radius:25px;
+    text-decoration:none;
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
+    transition:0.3s;
+}
+
+nav a:hover{
+    background:#0056b3;
+}
 /* ROLE BADGE */
 .role {
     padding: 4px 10px;
@@ -172,7 +190,10 @@ td form {
 
 </head>
 <body>
-<a href="index.php" class="btn-retour">Retour ↩️</a>
+    <nav>
+<a href="index.php">Retour ↩️</a>
+
+</nav>
 
 <div class="container">
     <h1>Listes</h1>
