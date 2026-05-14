@@ -11,10 +11,23 @@ if(isset($_POST['bouton'])){
         mysqli_stmt_bind_param($stmt,"ssi", $_POST['titre'], $_POST['msg'], $_SESSION['user_id']);
 
         if(mysqli_stmt_execute($stmt)){
-            header("Location: lougout.php");
-            exit();
+
+        $ticket=mysqli_insert_id($monLien);
+
+        $sql2= "insert into messages(ticket_id,user_id,message) values(?,?,?)";
+        $stmt2=mysqli_prepare($monLien,$sql2);
+        mysqli_stmt_bind_param($stmt2,"iis",$ticket,$_SESSION['user_id'],$_POST['msg']);
+        mysqli_stmt_execute($stmt2);
+
+        header("Location: ticket.php");
+        exit();
+           
         }
-    }
+
+
+
+
+        }
 }
 ?>
 
